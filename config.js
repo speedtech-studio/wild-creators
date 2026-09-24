@@ -1,0 +1,1 @@
+window.WILD_CONFIG={supabaseUrl:"https://shlknthjrtxzbzegcaev.supabase.co",supabasePublishableKey:"sb_publishable_yKvmwGYnb7J0vblMxWt3bA_getZxHN8",bucket:"creature-images"};
