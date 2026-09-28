@@ -19,3 +19,31 @@ label{display:block;font-weight:800;margin:14px 0}input{width:100%;padding:13px 
 footer{text-align:center;padding:22px;font-weight:700}
 @media(max-width:900px){main{grid-template-columns:1fr}.stage{min-height:620px}.profile{grid-template-columns:1fr}.profile img{height:130px}}
 @media(max-width:600px){.stage{min-height:520px}.stage-help{white-space:normal;width:80%;text-align:center}header{align-items:flex-start}.ghost{font-size:12px}}
+
+
+/* Added controls only — original Wild Creator design remains unchanged. */
+.upload-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.upload-options .upload{margin:0;min-height:135px;text-align:center;padding:12px}
+.stage-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.habitat-full-btn{white-space:nowrap}
+
+.stage:fullscreen,
+.stage:-webkit-full-screen{
+  width:100vw!important;
+  height:100vh!important;
+  min-height:100vh!important;
+  max-height:none!important;
+  border-radius:0!important;
+  border:0!important;
+  margin:0!important;
+  background-position:center!important;
+  background-size:cover!important;
+}
+.stage:fullscreen .stage-help,
+.stage:-webkit-full-screen .stage-help{bottom:20px}
+
+@media(max-width:600px){
+  .upload-options{grid-template-columns:1fr}
+  .stage-actions{align-items:stretch}
+  .habitat-full-btn{width:100%}
+}

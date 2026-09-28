@@ -23,8 +23,8 @@ function makeChips(id,items,type){
 }
 makeChips("#adjBank",adjectives,"adj"); makeChips("#compBank",comparatives,"comp"); makeChips("#reasonBank",reasons,"reason");
 
-$("#fileInput").addEventListener("change",e=>{
-  const f=e.target.files[0]; if(!f)return;
+function processCreaturePhoto(file){
+  if(!file)return;
   const reader=new FileReader();
 
   reader.onload=()=>{
@@ -43,8 +43,7 @@ $("#fileInput").addEventListener("change",e=>{
       const frame=ctx.getImageData(0,0,canvas.width,canvas.height);
       const px=frame.data;
 
-      // Automatically remove white / near-white paper.
-      // A soft transparent edge helps prevent a white halo.
+      // Same automatic white-paper removal as the previous version.
       for(let i=0;i<px.length;i+=4){
         const red=px[i], green=px[i+1], blue=px[i+2];
         const brightest=Math.max(red,green,blue);
@@ -70,8 +69,11 @@ $("#fileInput").addEventListener("change",e=>{
     img.src=reader.result;
   };
 
-  reader.readAsDataURL(f);
-});
+  reader.readAsDataURL(file);
+}
+
+$("#galleryInput").addEventListener("change",e=>processCreaturePhoto(e.target.files[0]));
+$("#cameraInput").addEventListener("change",e=>processCreaturePhoto(e.target.files[0]));
 document.querySelectorAll(".world").forEach(b=>b.onclick=()=>{
   document.querySelectorAll(".world").forEach(x=>x.classList.remove("active"));b.classList.add("active");
   selectedWorld=b.dataset.world;$("#habitatLabel").textContent=selectedWorld==="land"?"🌿 Land selected":"🌊 Ocean selected";
@@ -107,3 +109,30 @@ function saveCreature(d){
 }
 try{JSON.parse(localStorage.getItem("wild-creatures")||"[]").forEach(addCreature)}catch(e){}
 $("#fullBtn").onclick=()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()};
+
+
+const habitatStage=$("#stage");
+const habitatFullBtn=$("#habitatFullBtn");
+
+habitatFullBtn.onclick=async()=>{
+  try{
+    if(document.fullscreenElement || document.webkitFullscreenElement){
+      if(document.exitFullscreen) await document.exitFullscreen();
+      else if(document.webkitExitFullscreen) document.webkitExitFullscreen();
+      return;
+    }
+
+    if(habitatStage.requestFullscreen) await habitatStage.requestFullscreen();
+    else if(habitatStage.webkitRequestFullscreen) habitatStage.webkitRequestFullscreen();
+    else msg("Full-screen habitat is not supported by this browser.");
+  }catch(err){
+    msg("Full-screen habitat is not supported by this browser.");
+  }
+};
+
+function updateHabitatFullscreenButton(){
+  const active=document.fullscreenElement===habitatStage || document.webkitFullscreenElement===habitatStage;
+  habitatFullBtn.textContent=active ? "↙ Exit Full Screen" : "⛶ Habitat Full Screen";
+}
+document.addEventListener("fullscreenchange",updateHabitatFullscreenButton);
+document.addEventListener("webkitfullscreenchange",updateHabitatFullscreenButton);

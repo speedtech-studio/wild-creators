@@ -23,10 +23,16 @@
         <div><h2>Scan Your Creature</h2><p>Upload a photo of your animal drawing.</p></div>
       </div>
 
-      <label class="upload">
-        <input id="fileInput" type="file" accept="image/*" capture="environment">
-        <span>📷</span><strong>Scan / Upload Drawing</strong>
-      </label>
+      <div class="upload-options">
+        <label class="upload upload-choice">
+          <input id="galleryInput" type="file" accept="image/*">
+          <span>🖼️</span><strong>Upload from Gallery</strong>
+        </label>
+        <label class="upload upload-choice">
+          <input id="cameraInput" type="file" accept="image/*" capture="environment">
+          <span>📷</span><strong>Take a Picture</strong>
+        </label>
+      </div>
       <div id="previewWrap" class="preview-wrap hidden">
         <img id="preview" alt="Drawing preview">
       </div>
@@ -63,7 +69,10 @@
     <section class="stage-panel">
       <div class="stage-heading">
         <div><span class="eyebrow">CLASS WILD WORLD</span><h2>Our Living Habitat</h2></div>
-        <span id="habitatLabel" class="badge">🌿 Land selected</span>
+        <div class="stage-actions">
+          <span id="habitatLabel" class="badge">🌿 Land selected</span>
+          <button id="habitatFullBtn" class="ghost habitat-full-btn">⛶ Habitat Full Screen</button>
+        </div>
       </div>
 
       <div id="stage" class="stage">
