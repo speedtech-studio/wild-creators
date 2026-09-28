@@ -1,7 +1,22 @@
-# Wild Creator V2 — Digital Creature Archive
+WILD CREATOR — ALIVE PROTOTYPE V1
 
-Upload `index.html`, `style.css`, `config.js`, and `app.js` to the ROOT of the GitHub Pages repository, replacing V1 files.
+Core flow:
+Draw → Scan/Upload → Describe → Compare → Justify → Release → Class Wild World.
 
-Features: teacher login; School → Class → Student hierarchy; private drawing upload; Describe → Compare → Justify; persistent Wild Collection; Teacher Archive.
+This first prototype deliberately runs on ONE browser/device so we can test the experience before reconnecting Supabase.
 
-Security: `config.js` contains only the Supabase Project URL and publishable key. Never put a secret/service_role key or database password in GitHub. The current prototype is teacher-only. Parent/student access is intentionally not public yet.
+What works:
+- upload/camera drawing
+- simple white-paper background removal
+- English mission gate
+- release original drawing into animated habitat
+- multiple moving creatures
+- tap creature for English profile
+- fullscreen projector mode
+- local persistence
+
+Important:
+The drawing is animated as a 2D image. It is not AI-generated and is not claimed to be 3D.
+
+Next after you approve the visual/interaction:
+Connect Supabase + realtime so multiple pupil devices can release creatures into the teacher's projector world.
