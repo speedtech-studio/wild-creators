@@ -47,3 +47,26 @@ footer{text-align:center;padding:22px;font-weight:700}
   .stage-actions{align-items:stretch}
   .habitat-full-btn{width:100%}
 }
+.student-tag{
+  position:absolute;
+  left:50%;
+  bottom:-22px;
+  transform:translateX(-50%);
+
+  background:rgba(6,28,24,.82);
+  color:white;
+
+  padding:3px 7px;
+  border-radius:999px;
+
+  font-size:10px;
+  font-weight:900;
+
+  white-space:nowrap;
+  pointer-events:none;
+}
+
+.stage:fullscreen .student-tag,
+.stage:-webkit-full-screen .student-tag{
+  font-size:12px;
+}
