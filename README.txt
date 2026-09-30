@@ -20,3 +20,7 @@ How delete works:
 Important:
 Because pupils do not log in, any pupil can technically delete any creature they can open.
 This package matches your requested classroom behaviour.
+
+
+POSITION FIX:
+Delete Creature now sits below the English profile text. The X close button remains top-right.

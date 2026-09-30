@@ -66,14 +66,84 @@ footer{text-align:center;padding:22px;font-weight:700}
 .stage:fullscreen .student-tag,
 .stage:-webkit-full-screen .student-tag{font-size:12px}
 
-.delete-creature{
-  margin-top:12px;
-  padding:10px 16px;
+
+
+
+/* ===== Creature Profile Buttons — Final Position Fix ===== */
+
+/* Only the X close button stays at the top-right corner */
+#closeProfile{
+  position:absolute;
+  top:14px;
+  right:16px;
+  left:auto;
+  bottom:auto;
+  width:38px;
+  height:38px;
+  margin:0;
+  padding:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   border:none;
-  border-radius:12px;
-  background:#c62828;
-  color:white;
-  font-weight:800;
+  border-radius:50%;
+  background:transparent;
+  color:#1686c7;
+  font-size:30px;
+  line-height:1;
+  font-weight:500;
   cursor:pointer;
+  z-index:20;
 }
-.delete-creature:hover{opacity:.9}
+
+/* Delete button sits neatly after the English profile text */
+#deleteCreatureBtn.delete-creature{
+  position:static !important;
+  inset:auto !important;
+  float:none !important;
+
+  display:block;
+  width:max-content;
+  max-width:100%;
+
+  margin:18px 0 0 auto !important;
+  padding:9px 16px !important;
+
+  border:1.5px solid #d7a3a3 !important;
+  border-radius:999px !important;
+
+  background:#fff5f5 !important;
+  color:#a62d2d !important;
+
+  font-size:13px !important;
+  line-height:1.2 !important;
+  font-weight:800 !important;
+  white-space:nowrap;
+
+  transform:none !important;
+  cursor:pointer;
+  transition:background .2s ease,color .2s ease,border-color .2s ease;
+  z-index:auto !important;
+}
+
+#deleteCreatureBtn.delete-creature:hover{
+  background:#a62d2d !important;
+  color:#fff !important;
+  border-color:#a62d2d !important;
+}
+
+#deleteCreatureBtn.delete-creature:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
+#deleteCreatureBtn.hidden{
+  display:none !important;
+}
+
+@media (max-width:700px){
+  #deleteCreatureBtn.delete-creature{
+    margin-top:14px !important;
+    margin-left:0 !important;
+  }
+}
