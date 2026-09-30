@@ -1,22 +1,22 @@
-WILD CREATOR — LAND + OCEAN BACKGROUND
+WILD CREATOR — LIVE CLASS + DELETE
 
-Files:
-- index.html
-- style.css
-- app.js
-- wild-world-background.png
+1. Supabase -> SQL Editor -> New Query.
+2. Copy all code from RUN-THIS-SQL-FIRST.sql and Run.
+3. Upload/replace these four website files in your GitHub repository root:
+   index.html
+   style.css
+   app.js
+   wild-world-background.png
+4. Keep your existing rapid-responder Edge Function.
 
-GitHub Pages:
-Upload all four files to the ROOT of your wild-creators repository.
-Do not rename wild-world-background.png unless you also change the CSS filename.
+How delete works:
+- Tap a creature.
+- Tap "Delete Creature".
+- Confirm.
+- The creature is removed from Supabase.
+- Realtime DELETE removes it from all open teacher/student screens automatically.
+- The app also attempts to delete its uploaded image.
 
-This classroom prototype stores creatures in localStorage on the current device.
-The existing Supabase multi-device/live-class version can be connected afterward.
-
-NEW: Uploaded drawings automatically have white/near-white paper made transparent before release.
-
-NEW CONTROLS:
-- Upload from Gallery
-- Take a Picture
-- Both use the same automatic white-background removal before release.
-- Habitat Full Screen makes ONLY the land/ocean habitat fill the screen.
+Important:
+Because pupils do not log in, any pupil can technically delete any creature they can open.
+This package matches your requested classroom behaviour.
